@@ -1,0 +1,33 @@
+#include <LPC17xx.h>
+
+unsigned int delay;
+
+
+void delay_ms(unsigned int x){
+	unsigned int j, k;
+	for(j =0; j < x; j++)
+		for(k =0; k < x; k++);
+}
+
+int main(void){
+
+	LPC_GPIO0 -> FIODIR = 0xffff;
+	
+
+	LPC_GPIO0 -> FIOPIN = 1;
+	delay_ms(2000);
+		
+	LPC_GPIO0->FIOCLR = 1;
+	delay_ms(2000);
+
+// keep blinking
+//	while(1){
+//	LPC_GPIO0 -> FIOPIN = 1;
+//	delay_ms(2000);
+//		
+//	LPC_GPIO0->FIOCLR = 1;
+//	delay_ms(2000);
+//	}
+
+
+}

@@ -1,0 +1,21 @@
+#include <LPC17xx.h>
+
+
+void delay_ms(unsigned int x){
+	unsigned int j, k;
+	for(j =0; j < x; j++)
+		for(k =0; k < x; k++);
+}
+
+
+
+int main(void){
+	
+	LPC_GPIO2 -> FIODIR = 0xffff;
+	LPC_PINCON -> PINSEL4 = 1;
+	LPC_PWM1 -> PCR = (1<<9);
+	LPC_PWM1 -> MR0 = 1000000;
+	LPC_PWM1 -> MR1 = 500000;
+	LPC_PWM1 -> MCR = 2;
+	LPC_PWM1 -> TCR = 9;
+}
